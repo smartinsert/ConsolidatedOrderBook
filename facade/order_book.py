@@ -1,17 +1,18 @@
-from abc import ABC, abstractmethod
+from utilities import SingletonABCMeta
+from abc import abstractmethod
 
 
-class OrderBook(ABC):
+class OrderBook(metaclass=SingletonABCMeta):
     @abstractmethod
-    def add(self, order_id: int, side: str, price: float, size: int):
+    def add(self, symbol: str, order_id: str, side: str, price: float, size: int):
         raise NotImplementedError
 
     @abstractmethod
-    def modify(self, order_id: int, size: int):
+    def modify(self, order_id: str, size: int):
         raise NotImplementedError
 
     @abstractmethod
-    def cancel(self, order_id: int):
+    def cancel(self, order_id: str):
         raise NotImplementedError
 
     @abstractmethod

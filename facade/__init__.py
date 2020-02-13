@@ -1,2 +1,2 @@
-from .exchange import *
 from .order_book import *
+from .exchange import Exchange
